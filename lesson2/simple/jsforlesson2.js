@@ -10,7 +10,7 @@ var mainList = {
 		}
 
 /*let i=0;
-while (i <4){
+while (i <3){
 	i++;
 let сс = prompt('Какой тип товаров будем продавать?');
 mainList.shopGoods[i] = сс;
@@ -20,11 +20,11 @@ mainList.shopGoods[i] = сс;
 do {let сс = prompt('Какой тип товаров будем продавать?');
    i++;
 mainList.shopGoods[i] = сс;   
-} while(i<4);*/
+} while(i<3);*/
 
 
 
-for (let i = 0; i<4;i++){
+for (let i = 0; i<3;i++){
 
 let сс = prompt('Какой тип товаров будем продавать?');
 
@@ -42,7 +42,7 @@ mainList.shopGoods[i] = сс;
 		
 
 var daycost =(cost / 30); 
- prompt("Ваш бюджет на день.Жми ОК и все поймешь!",daycost);
+ alert(daycost);
 console.log(mainList);
 		
 
