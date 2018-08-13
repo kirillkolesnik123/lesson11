@@ -46,14 +46,14 @@ employers();
 function chooseGoods(){
 	
 
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 3; i++) {
 
 let cc = prompt('Какой тип товаров будем продавать?');
 
 if((typeof(cc)) === "string"  && (typeof(cc)) != null && cc != '' && cc.length <50) {
 	console.log("vse верно!");
     mainList.shopGoods[i] = cc; 	
-} else  {
+     } else  {
 	i= i - 1;
 }
 }
