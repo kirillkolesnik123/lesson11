@@ -18,7 +18,7 @@ mainList.shopGoods[i] = сс;
  
 
 var daycost =(cost / 30); 
- alert(daycost);
+ alert("Ваш бюджет на день" + daycost);
 console.log(mainList);
 		
 
