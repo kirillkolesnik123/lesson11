@@ -1,7 +1,7 @@
-var cost = prompt("Ваш бюджет на месяц?");
-var shopsname = prompt("Название вашего магазина");
+let cost = prompt("Ваш бюджет на месяц?");
+let shopsname = prompt("Название вашего магазина");
 /* здесь 3 начинается*/
-var mainList = {
+let mainList = {
 	cost,
 	shopsname,
 	shopGoods: [],
@@ -14,38 +14,25 @@ while (i <3){
 	i++;
 let сс = prompt('Какой тип товаров будем продавать?');
 mainList.shopGoods[i] = сс;
-
 }*/
 /*let i =0;
 do {let сс = prompt('Какой тип товаров будем продавать?');
    i++;
 mainList.shopGoods[i] = сс;   
 } while(i<3);*/
+for (let i = 0; i < 3; i++) {  
+  let a = prompt ('Какой тип товаров будем продавать?', ''); 
 
+ if((typeof(a)) === 'string'    && (typeof(a))   != null   &&    a != ''    &&    a.length < 50       ) {
 
+        console.log('Все верно');
+        mainList.shopGoods[i] = a;
 
-for (let i = 0; i<3;i++){
-
-let сс = prompt('Какой тип товаров будем продавать?');
-
-if((typeof(cc)) === "string"  && cc != '' && cc.length <50) {
-	console.log("vse верно!");
-mainList.shopGoods[i] = сс; 	
-} else if ((typeof(cc)) != null) {
-	console.log('не верно!');
-	mainList.shopGoods[i] = сс;
+               }  else {
+                   i--;
+               }
 }
 
-
-}
-  
-		
-
-var daycost =(cost / 30); 
- alert(daycost);
+let daycost =(cost / 30); 
+ alert("Ваш дневной бюджет"+daycost);
 console.log(mainList);
-		
-
-
-
-
