@@ -102,7 +102,7 @@ let mainList = {
 		let arr =mainList.ShopItems;
 		arr.forEach(function(item,i,arr){
 			i=i+1;
-			alert( 'У нас вы можете купить'+ i + ": " + item + " (массив:" + arr + ")" );
+			alert( 'У нас вы можете купить'+ i + ": " + item  + arr);
 		});
 	},
 	list: function(){
@@ -114,7 +114,18 @@ let mainList = {
 	} 
 
 }
+mainList.chooseGoods();
+mainList.workTime();
+mainList.costfor1day();
+mainList.ShowDiscount();
+mainList.employers();
+mainList.chooseShopItems();
+mainList.tobuy();
+mainList.list();
 console.log(mainList);
+
+
+
 
 
 
