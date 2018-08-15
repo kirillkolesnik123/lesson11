@@ -98,7 +98,7 @@ let mainList = {
 		let arr =mainList.ShopItems;
 		arr.forEach(function(item,i,arr){
 			i=i+1;
-			alert( 'У нас вы можете купить '+ i + " : " +item + '('+ arr+')');
+			alert( 'У нас вы можете купить '+ i + " : " +item );
 		});
 	},
 	list: function(){
