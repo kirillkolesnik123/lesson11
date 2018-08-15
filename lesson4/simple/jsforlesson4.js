@@ -17,7 +17,6 @@ let mainList = {
 	cost, 
 	shopsname,
 	shopGoods: [],
-	employers: {},
 	Open: true,
 	discount: false,
 	ShopItems: [],
@@ -66,12 +65,13 @@ let mainList = {
 			alert("У вас нет скидки. С вас" +price);
 		}
 	},	
-	employers:function employers(){
+	employers:{},
+	zz:function employers(employers){
 		for(let i =0; i<4;i++){
 			let emp= prompt("Имя сотрудника","");
 			if((typeof(emp)) === "string"  && (typeof(emp)) != null && emp != '' && emp.length <50) {
 				console.log("молодец!");
-				mainList.shopGoods[i] = emp; 	
+				mainList.employers[i] = emp; 	
 			} else  {
 				i= i - 1;
 				alert('Попробуй еще раз!');
@@ -80,35 +80,31 @@ let mainList = {
 
 		}
 	},
-	chooseShopItems: function chooseShopItems(){
+	SI: function chooseShopItems(){
 		
 		
 		let items = prompt('Перечислите через запятую товары','');
-		while(isFinite(items)||items ==''||items ==null) {
+		while(items==''||items ==' '||items ==null) {
 			items = prompt('Перечислите через запятую товары','');
-
+			
 		}
-		let z =prompt('Подождите! Еще','');
-		mainList.ShopItems = items.split(',');
-		mainList.ShopItems.push(z);
-		while(isFinite(z)||z ==''||z ==null) {
-			z = prompt('Подождите! Еще','');
-
-		}
+		mainList.ShopItems= items.split(",");
+		mainList.ShopItems.push(prompt('Подождите! Еще', ''));
 		mainList.ShopItems.sort();
+
 
 	},
 	tobuy:function tobuy(){
 		let arr =mainList.ShopItems;
 		arr.forEach(function(item,i,arr){
 			i=i+1;
-			alert( 'У нас вы можете купить'+ i + ": " + item  + arr);
+			alert( 'У нас вы можете купить '+ i + " : " +item + '('+ arr+')');
 		});
 	},
 	list: function(){
 		let pp=mainList.shopGoods;
 		for (let key in pp){
-			alert('Наш магазин включает в себя:'+ pp[key] );
+			console.log('Наш магазин включает в себя:'+ pp[key] );
 		}
 
 	} 
@@ -118,8 +114,8 @@ mainList.chooseGoods();
 mainList.workTime();
 mainList.costfor1day();
 mainList.ShowDiscount();
-mainList.employers();
-mainList.chooseShopItems();
+mainList.zz();
+mainList.SI();
 mainList.tobuy();
 mainList.list();
 console.log(mainList);
