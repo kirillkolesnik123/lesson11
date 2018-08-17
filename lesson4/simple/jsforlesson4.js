@@ -10,7 +10,11 @@ function start(){
 
 	}
 	shopsname = prompt("Название вашего магазина","").toUpperCase();
-	time= 21;
+	while(shopsname ==='string' || shopsname == '' || shopsname==null) {
+		shopsname = prompt("Название вашего магазина","");
+
+	}
+	time= 21; 
 }
 start() ;
 let mainList = {
@@ -28,7 +32,7 @@ let mainList = {
 
 			let cc = prompt('Какой тип товаров будем продавать?',"");
 
-			if((typeof(cc)) === "string"  && (typeof(cc)) != null && cc != '' && cc.length <50) {
+			if((typeof(cc)) === "string"  && (typeof(cc)) != null && cc != ''&& cc!=' ' && cc.length <50) {
 				console.log("vse верно!");
 				mainList.shopGoods[i] = cc; 	
 			} else  {
