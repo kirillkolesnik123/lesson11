@@ -21,7 +21,7 @@ let mainList = {
 	Open: true,
 	discount: false,
 	shopitems:[],
-	chooseGoods:function chooseGoods(){
+	chooseGoods: function chooseGoods(){
 
 
 		for (let i = 0; i < 5; i++) {
@@ -96,16 +96,16 @@ let mainList = {
 			i=i+1;
 			alert( 'У нас вы можете купить '+ i + " : " +item );
 		});
-	},
-	list: function(){
-		let pp=mainList;
-		for (let key in pp){
-			console.log('Наш магазин включает в себя:'+ pp[key] );
-		}
-
 	}
 }
 
+
+	function list (){
+		for (let key in mainList){
+			console.log('Наш магазин включает в себя:'+ key+' ,которое имеет значение '+mainList[key] );
+		} 
+
+		} list();
 
 mainList.chooseGoods();
 mainList.workTime();
@@ -113,8 +113,8 @@ mainList.costfor1day();
 mainList.ShowDiscount();
 mainList.chooseshopitems();
 mainList.tobuy();
-mainList.list();
 mainList.hireemployers();
+console.log(Object.keys(mainList).length<6);
 console.log(mainList);
 
 
