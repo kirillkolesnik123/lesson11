@@ -41,7 +41,7 @@ let mainList = {
 			let emp= prompt("Имя сотрудника","");
 			if((typeof(emp)) === "string"  && (typeof(emp)) != null && emp != '' && emp.length <50) {
 				console.log("молодец!");
-				mainList.shopGoods[i] = emp; 	
+				mainList.employers[i] = emp; 	
 			} else  {
 				i= i - 1;
 				alert('Попробуй еще раз!');
