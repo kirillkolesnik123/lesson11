@@ -10,7 +10,7 @@ function start(){
 
 	}
 	shopsname = prompt("Название вашего магазина","").toUpperCase();
-	while(shopsname ==='string' || shopsname == '' || shopsname= ' ' || shopsname==null) {
+	while(shopsname ==='string' || shopsname == '' || shopsname== ' ' || shopsname==null) {
 		shopsname = prompt("Название вашего магазина","");
 
 	}
