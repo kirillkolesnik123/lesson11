@@ -5,12 +5,12 @@ price;
 
 function start(){
 	cost = prompt("Ваш бюджет на месяц?","");
-	while(isNaN(cost) || cost == "" || cost ==null) {
+	while(isNaN(cost) || cost == "" || cost ==' ' || cost ==null) {
 		cost = prompt("Ваш бюджет на месяц?","");
 
 	}
 	shopsname = prompt("Название вашего магазина","").toUpperCase();
-	while(shopsname ==='string' || shopsname == '' || shopsname==null) {
+	while(shopsname ==='string' || shopsname == '' || shopsname= ' ' || shopsname==null) {
 		shopsname = prompt("Название вашего магазина","");
 
 	}
@@ -43,7 +43,7 @@ let mainList = {
 	hireemployers:function hireemployers(){
 		for(let i =0; i<4;i++){
 			let emp= prompt("Имя сотрудника","");
-			if((typeof(emp)) === "string"  && (typeof(emp)) != null && emp != '' && emp.length <50) {
+			if((typeof(emp)) === "string"  && (typeof(emp)) != null && emp != '' && emp !=' ' && emp.length <50) {
 				console.log("молодец!");
 				mainList.employers[i] = emp; 	
 			} else  {
@@ -104,12 +104,12 @@ let mainList = {
 }
 
 
-	function list (){
-		for (let key in mainList){
-			console.log('Наш магазин включает в себя:'+ key+' ,которое имеет значение '+mainList[key] );
-		} 
+function list (){
+	for (let key in mainList){
+		console.log('Наш магазин включает в себя:'+ key+' ,которое имеет значение '+mainList[key] );
+	} 
 
-		} list();
+} list();
 
 mainList.chooseGoods();
 mainList.workTime();
