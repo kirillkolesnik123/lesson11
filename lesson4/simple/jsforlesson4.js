@@ -4,28 +4,29 @@ time,
 price;
 
 function start(){
-	cost = prompt("Ваш бюджет на месяц?", '');
+	cost = prompt("Ваш бюджет на месяц?","");
 	while(isNaN(cost) || cost == "" || cost ==null) {
-		cost = prompt("Ваш бюджет на месяц?");
+		cost = prompt("Ваш бюджет на месяц?","");
 
 	}
-	shopsname = prompt("Название вашего магазина").toUpperCase();
+	shopsname = prompt("Название вашего магазина","").toUpperCase();
 	time= 21;
-};
+}
 start() ;
 let mainList = {
-	cost, 
+	cost,
 	shopsname,
 	shopGoods: [],
+	employers:{},  
 	Open: true,
 	discount: false,
-	ShopItems: [],
+	shopitems:[],
 	chooseGoods:function chooseGoods(){
 
 
 		for (let i = 0; i < 5; i++) {
 
-			let cc = prompt('Какой тип товаров будем продавать?', '');
+			let cc = prompt('Какой тип товаров будем продавать?',"");
 
 			if((typeof(cc)) === "string"  && (typeof(cc)) != null && cc != '' && cc.length <50) {
 				console.log("vse верно!");
@@ -33,6 +34,30 @@ let mainList = {
 			} else  {
 				i= i - 1;
 			}
+		}
+	},
+	hireemployers:function hireemployers(){
+		for(let i =0; i<4;i++){
+			let emp= prompt("Имя сотрудника","");
+			if((typeof(emp)) === "string"  && (typeof(emp)) != null && emp != '' && emp.length <50) {
+				console.log("молодец!");
+				mainList.shopGoods[i] = emp; 	
+			} else  {
+				i= i - 1;
+				alert('Попробуй еще раз!');
+			}
+			mainList.employers[i]=emp;
+
+		}
+	},
+	ShowDiscount:function ShowDiscount(discount) {
+
+		if (discount) {
+			price= cost*0.8;
+			alert("Цена со скидкой" +price);
+		} else  {
+			price = cost;
+			alert("У вас нет скидки. С вас" +price);
 		}
 	},
 	workTime:function workTime(time){
@@ -55,73 +80,42 @@ let mainList = {
 		alert("Ваш дневной бюджет равен" + daycost)
 
 	},
-	ShowDiscount:function ShowDiscount(discount) {
-
-		if (discount) {
-			price= cost*0.8;
-			alert("Цена со скидкой" +price);
-		} else  {
-			price = cost;
-			alert("У вас нет скидки. С вас" +price);
-		}
-	},	
-	employers:{},
-	zz:function employers(employers){
-		for(let i =0; i<4;i++){
-			let emp= prompt("Имя сотрудника","");
-			if((typeof(emp)) === "string"  && (typeof(emp)) != null && emp != '' && emp.length <50) {
-				console.log("молодец!");
-				mainList.employers[i] = emp; 	
-			} else  {
-				i= i - 1;
-				alert('Попробуй еще раз!');
-			}
-			mainList.employers[i]=emp;
-
-		}
-	},
-	SI: function chooseShopItems(){
-		
-		
-		let items = prompt('Перечислите через запятую товары','');
+	chooseshopitems: function chooseshopitems(){
+		let items = prompt(' перечислети через запятую товары', '');
 		while(items==''||items ==' '||items ==null) {
 			items = prompt('Перечислите через запятую товары','');
 			
 		}
-		mainList.ShopItems= items.split(",");
-		mainList.ShopItems.push(prompt('Подождите! Еще', ''));
-		mainList.ShopItems.sort();
-
-
+		mainList.shopitems = items.split(',');
+		mainList.shopitems.push(prompt(' Подождите! еще',''));
+		mainList.shopitems.sort();
 	},
 	tobuy:function tobuy(){
-		let arr =mainList.ShopItems;
+		let arr =mainList.shopitems;
 		arr.forEach(function(item,i,arr){
 			i=i+1;
 			alert( 'У нас вы можете купить '+ i + " : " +item );
 		});
 	},
 	list: function(){
-		let pp=mainList.shopGoods;
+		let pp=mainList;
 		for (let key in pp){
 			console.log('Наш магазин включает в себя:'+ pp[key] );
 		}
 
-	} 
-
+	}
 }
+
+
 mainList.chooseGoods();
 mainList.workTime();
 mainList.costfor1day();
 mainList.ShowDiscount();
-mainList.zz();
-mainList.SI();
+mainList.chooseshopitems();
 mainList.tobuy();
 mainList.list();
+mainList.hireemployers();
 console.log(mainList);
-
-
-
 
 
 
