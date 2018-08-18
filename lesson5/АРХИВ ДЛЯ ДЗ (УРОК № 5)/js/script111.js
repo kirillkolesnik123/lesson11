@@ -10,7 +10,7 @@ let ly=document.getElementsByTagName('li');
 let changeli= ly[1].parentNode;
 changeli.insertBefore(ly[2],ly[1]);
 
-document.body.style.backgroundImage= "url('file:///C:/Users/kkolesnik/Desktop/Own/JS course/lesson5/АРХИВ ДЛЯ ДЗ (УРОК № 5)/img/apple_true.jpg')";
+document.body.style.backgroundImage="url('img/apple_true.jpg')";
 
 let changetitle= document.getElementById('title');
 changetitle.innerHTML = changetitle.innerHTML.replace('технику','подлинную технику');
