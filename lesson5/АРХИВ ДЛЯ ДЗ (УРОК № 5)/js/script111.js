@@ -18,6 +18,6 @@ let deleteadvert=document.getElementsByClassName('adv');
 let parentadv= deleteadvert[0].parentNode;
 parentadv.removeChild(deleteadvert[0]);
 let useropinion=prompt('Ваше мнение о технике Apple?');
-let putin=document.getElementsByClassName('prompt');
+let putin=document.getElementsByClassName('prompt')[0];
 putin.innerHTML= useropinion;
 console.log(useropinion)
