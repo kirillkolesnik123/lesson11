@@ -32,7 +32,7 @@ window.addEventListener('DOMContentLoaded',function(){
 	});
 
 // Timer
-let deadline = '2018-08-26';
+let deadline = '2018-08-28';
 
 function getTimeRemaining(endtime){
 	let t = Date.parse(endtime) - Date.parse(new Date());
@@ -42,7 +42,7 @@ function getTimeRemaining(endtime){
 	}
 	let minutes = Math.floor( (t/1000/60) % 60);
 	if(minutes<=9){
-		minutes=minutes
+		minutes= '0'+ minutes
 	}
 	let hours = Math.floor( (t/(1000*60*60)) );
 	if(hours<=9){
@@ -74,25 +74,30 @@ function setClock(id, endtime){
 
 	function updateClock(){
 		let t = getTimeRemaining(endtime);
-		hours.innerHTML = t.hours;
-		minutes.innerHTML = t.minutes;
-		seconds.innerHTML = t.seconds;
-	
-
-		if (t.total <=0) {
-			clearInterval(timeInterval);
+		if(t.hours <=0 && t.minutes <=0 && t.seconds <=0){
+			clearInterval(updateClock);
+			hours.innerHTML = "00";
+			minutes.innerHTML = "00";
+			seconds.innerHTML = "00";
+		} else {
+			hours.innerHTML = t.hours;
+			minutes.innerHTML = t.minutes;
+			seconds.innerHTML = t.seconds;
 		}
+
 	};
 
 	updateClock();
-	let timeInterval = setInterval(updateClock, 1000);
-};
+	setInterval(updateClock, 1000);
+
+}
+
 
 setClock('timer',deadline);
 
 
 
-	
+
 
 
 });
