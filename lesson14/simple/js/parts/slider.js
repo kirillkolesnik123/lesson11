@@ -1,57 +1,63 @@
-function slid(){
-	let slideIndex = 1,
- 		slides = document.getElementsByClassName('slider-item'),
- 		prev = document.querySelector('.prev'),
- 		next = document.querySelector('.next'),
- 		dotsWrap = document.querySelector('.slider-dots'),
- 		dots = document.getElementsByClassName('dot');
+"use strict";
 
- 		showSlides(slideIndex);
+function slid() {
+  var slideIndex = 1,
+      slides = document.getElementsByClassName('slider-item'),
+      prev = document.querySelector('.prev'),
+      next = document.querySelector('.next'),
+      dotsWrap = document.querySelector('.slider-dots'),
+      dots = document.getElementsByClassName('dot');
+  showSlides(slideIndex);
 
- 		function showSlides(n) {
- 			if (n > slides.length) {
- 				slideIndex = 1;
- 			};
- 			if (n < 1) {
- 				slideIndex = slides.length;
- 			};
+  function showSlides(n) {
+    if (n > slides.length) {
+      slideIndex = 1;
+    }
 
- 			for( let i = 0; i < slides.length; i++) {
- 				slides[i].style.display = 'none';
- 			};
+    ;
 
- 			for(let i  = 0; i < dots.length; i++) {
- 				dots[i].classList.remove('dot-active')
- 			};
+    if (n < 1) {
+      slideIndex = slides.length;
+    }
 
- 			slides[slideIndex -1].style.display = 'block';
- 			dots[slideIndex -1].classList.add('dot-active');
- 		}
+    ;
 
- 		function plusSlides (n) {
- 			showSlides(slideIndex += n)
- 		}
+    for (var i = 0; i < slides.length; i++) {
+      slides[i].style.display = 'none';
+    }
 
- 		function currentSlide(n) {
- 			showSlides(slideIndex = n)	
- 		}
+    ;
 
- 		next.addEventListener('click', function () {
- 			plusSlides(1)
- 		});
+    for (var _i = 0; _i < dots.length; _i++) {
+      dots[_i].classList.remove('dot-active');
+    }
 
- 		prev.addEventListener('click', function () {
- 			plusSlides(-1)
- 		
- 		});
+    ;
+    slides[slideIndex - 1].style.display = 'block';
+    dots[slideIndex - 1].classList.add('dot-active');
+  }
 
- 		dotsWrap.addEventListener('click', function(event) {
- 			for (let i = 0;i < dots.length + 1;i++) {
- 				if(event.target.classList.contains('dot') && event.target == dots[i]) {
- 					currentSlide(i);
- 				}
- 			}
-		});
-	
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+  next.addEventListener('click', function () {
+    plusSlides(1);
+  });
+  prev.addEventListener('click', function () {
+    plusSlides(-1);
+  });
+  dotsWrap.addEventListener('click', function (event) {
+    for (var i = 0; i < dots.length + 1; i++) {
+      if (event.target.classList.contains('dot') && event.target == dots[i]) {
+        currentSlide(i);
+      }
+    }
+  });
 }
+
 module.exports = slid;
