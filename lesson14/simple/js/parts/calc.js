@@ -36,8 +36,7 @@ function calc(){
 				if ((restDays.value == ''|| persons.value == '')|| (restDays.value == 0  ||persons.value == 0)) {
 					totalValue.innerHTML = 0;
 				} else {
-					let a =total;
-					totalValue.innerHTML = a * this.options[this.selectedIndex].value;
+					totalValue.innerHTML =  (daysSum + personsSum)*4000*place.value;
 				}
 			});
 }
